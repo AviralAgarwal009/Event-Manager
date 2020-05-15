@@ -13,6 +13,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "participants")
+@Getter
+@Setter
 public class Participants {
 	@Id
 	@Column(name = "reg_id")
@@ -20,28 +22,18 @@ public class Participants {
 	private int id;
 
 	@Column(name = "full_name")
-	@Getter
-	@Setter
 	private String name;
 
 	@Column(name = "mobile_number")
-	@Getter
-	@Setter
 	private int contact;
 
 	@Column(name = "id_card")
-	@Getter
-	@Setter
 	private Blob identity;
 
 	@Column(name = "reg._type")
-	@Getter
-	@Setter
 	private String regType;
 
 	@Column(name = "tickets_qty")
-	@Getter
-	@Setter
 	private int ticketsQty;
 
 	@Column(name = "date_time")
