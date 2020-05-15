@@ -1,9 +1,9 @@
                                                    -- Uncomment These Lines for creating user
                                                    -- if you are running this script for the first time 
                                                    
-/*CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
+CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
 GRANT ALL PRIVILEGES ON * . * TO 'event_data'@'localhost';
-ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';*/
+ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';
 
 DROP DATABASE IF EXISTS `event_info`;
 CREATE DATABASE `event_info`;
