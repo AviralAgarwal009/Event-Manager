@@ -14,12 +14,11 @@ USE `event_info`;
   `reg_id` int(8) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(60) NOT NULL,
   `mobile_number`int(10) NOT NULL,
-  `id_card`blob(400) NOT NULL,
+  `id_card`blob NOT NULL,
   `reg._type`varchar(10) NOT NULL,
   `tickets_qty`int(3) NOT NULL,
   `date_time`datetime NOT NULL,
-  PRIMARY KEY (`reg_id`),
-  UNIQUE KEY  (`id_card`)
+  PRIMARY KEY (`reg_id`)
 );
 
 -- insert into 
