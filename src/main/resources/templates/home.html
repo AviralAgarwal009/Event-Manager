@@ -11,6 +11,10 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
 <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <title>Details</title>
@@ -28,67 +32,64 @@
 
 				<div class="details">
 
-					<form action="#" th:action="@{preview}" th:object="${particiant}"
-						method="POST">
+					<form action="#" th:action="@{/preview}" th:object="${participant}" method="POST" enctype="multipart/form-data">
 
 						<h1>Details</h1>
 						<div class="textbox">
 
-							<i class="fa fa-user" aria-hidden="true"></i> <input
-								th:field="*{name}" type="text"
-								placeholder="Enter your full name" name="" value="" required>
+							<i class="fa fa-user" aria-hidden="true"></i> 
+							<input th:field="*{name}" type="text" placeholder="Enter your full name" name="" value="" required>
 
 						</div>
 
 						<div class="textbox">
 
-							<i class="fa fa-phone" aria-hidden="true"></i> <input
-								th:field="*{contact}" type="number"
-								placeholder="Enter your mobile number" name="" value="" required>
+							<i class="fa fa-phone" aria-hidden="true"></i> 
+							<input  type="number"  th:field="*{contact}" placeholder="Enter your mobile number" name="" value="" required>
 
 						</div>
 
 						<div class="textbox">
 
-							<i class="fa fa-envelope" aria-hidden="true"></i> <input
-								type="email" placeholder="Enter your email" name="" value=""
-								required>
+							<i class="fa fa-envelope" aria-hidden="true"></i> 
+							<input th:field="*{email}" type="email" placeholder="Enter your email" name="" value="" required>
 
 						</div>
 
 
 						<!--upload image is left-->
 
-						<div class="input-group mb-3" id="fileInput">
+						
+						 <div class="input-group mb-3" id="fileInput">
 							<div class="custom-file">
-								<input type="file" class="custom-file-input"
-									id="inputGroupFile02" accept="image/*"> <label
-									class="custom-file-label" for="inputGroupFile02" id="fileLabel">Upload
-									ID Card</label>
+								<input  type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" name="imageFile" required> 
+								<label class="custom-file-label" for="inputGroupFile02" id="fileLabel">Upload ID Card</label>
 							</div>
-
 						</div>
 
 
 						<div class="textbox">
-							<i class="fa fa-user-circle" aria-hidden="true"></i> <select
-								id="mySelect" onchange="myFunction()">
-								<option value="" disabled selected>Registartion Type</option>
-								<option>Self</option>
-								<option>Group</option>
-								<option>Corporate</option>
-								<option>Others</option>
+							<i class="fa fa-user-circle" aria-hidden="true"></i> 
+							<select th:field="*{regType}" id="mySelect" onchange="myFunction()" >
+							
+								<option  th:value="'Registration Type'"  disabled selected>Registartion Type</option>
+								<option  th:value="'Self'">Self</option>
+								<option  th:value="'Group'">Group</option>
+								<option  th:value="'Corporate'">Corporate</option>
+								<option  th:value="'Others'">Others</option>
+								
 							</select>
 
 							<div id="regType" style="display: none;">
+							
 								<br> <br> <i class="fa fa-ticket" aria-hidden="true"></i>
-								<input type="number" placeholder="No. of ticktes" name=""
-									value="" required>
+								
+								<input th:field="*{ticketsQty}"  id="tickets" type="number" placeholder="No. of ticktes" name="" value=""  >
 							</div>
 						</div>
 
-
-						<input class="btn" type="submit" value="Submit">
+						<button type="submit" class="btn">Submit</button>
+						
 					</form>
 
 				</div>
@@ -107,10 +108,16 @@
 
 		var index = document.getElementById("mySelect").selectedIndex;
 		if (index != 1) {
-
+			
 			document.getElementById("regType").style.display = "block";
+			document.getElementById("tickets").min = "1";
+			document.getElementById("tickets").required=true;
+			
 		} else {
+			
 			document.getElementById("regType").style.display = "none";
+			document.getElementById("tickets").required=false;
+			document.getElementById("tickets").removeAttribute("min");
 		}
 	}
 
