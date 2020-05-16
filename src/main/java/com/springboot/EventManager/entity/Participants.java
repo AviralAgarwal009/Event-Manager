@@ -27,6 +27,9 @@ public class Participants {
 	@Column(name = "mobile_number")
 	private int contact;
 
+	@Column(name = "email_id")
+	private String email;
+
 	@Column(name = "id_card")
 	private Blob identity;
 
@@ -41,8 +44,8 @@ public class Participants {
 
 	@Override
 	public String toString() {
-		return "Participants [id=" + id + ", name=" + name + ", contact=" + contact + ", identity=" + identity
-				+ ", regType=" + regType + ", ticketsQty=" + ticketsQty + ", dateTime=" + dateTime + "]";
+		return "Participants [id=" + id + ", name=" + name + ", contact=" + contact + ", email=" + email + ", identity="
+				+ identity + ", regType=" + regType + ", ticketsQty=" + ticketsQty + ", dateTime=" + dateTime + "]";
 	}
 
 }
