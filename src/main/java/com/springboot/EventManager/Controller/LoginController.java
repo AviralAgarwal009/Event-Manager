@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-	@GetMapping("/admin")
+	@GetMapping("/adminlogin")
 	public String login(Model model, String error, String logout) {
 
 		if (error != null)
@@ -21,16 +21,9 @@ public class LoginController {
 		return "login";
 	}
 
-	@GetMapping("/participants")
+	@GetMapping("/entries")
 	public String Welcome(Model model) {
 		return "admin";
 	}
-
-	/*@RequestMapping("/access-denied")
-	public String showAccessDenied() {
-
-		return "access-denied";
-
-	}*/
 
 }

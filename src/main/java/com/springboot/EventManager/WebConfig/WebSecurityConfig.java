@@ -24,18 +24,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		 http.authorizeRequests()
 		.antMatchers("/").permitAll()
-		.antMatchers("/admin").permitAll()
-		.antMatchers("/participants/**").hasRole("ADMIN")
-		//.anyRequest().authenticated()
+		.antMatchers("/adminlogin").permitAll()
+		.antMatchers("/entries/**").hasRole("ADMIN")
 		.and()
 		.formLogin()
-		    .loginPage("/admin")
+		    .loginPage("/adminlogin")
 		    .loginProcessingUrl("/authenticateTheUser")
+		    .defaultSuccessUrl("/entries")
 			.permitAll()
 		.and()
 		.logout().permitAll()
 		.and()
-		.exceptionHandling().accessDeniedPage("/access-denied");
+		.exceptionHandling().accessDeniedPage("/adminlogin");
 
 	}
 }

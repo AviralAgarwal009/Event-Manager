@@ -16,77 +16,69 @@ import com.springboot.EventManager.entity.Participants;
 
 @Controller
 public class FormController {
-	
+
 	@Autowired
 	DetailsService detailsService;
-	
-	
+
 	@GetMapping("/")
-	public String showHome(Model model,HttpSession httpSession) {
+	public String showHome(Model model, HttpSession httpSession) {
 		httpSession.setAttribute("begin", "true");
-		Participants participants=new Participants();
-		model.addAttribute("participant",participants);
+		Participants participants = new Participants();
+		model.addAttribute("participant", participants);
 		return "home";
 	}
-	
-	
-	
-	
+
 	@PostMapping("/preview")
-	public String showPreview(@RequestParam("imageFile") MultipartFile file,@ModelAttribute("participant") Participants participants,Model model , HttpSession httpSession) {
-		
-		if(httpSession.getAttribute("begin")==null) {
+	public String showPreview(@RequestParam("imageFile") MultipartFile file,
+			@ModelAttribute("participant") Participants participants, Model model, HttpSession httpSession) {
+
+		if (httpSession.getAttribute("begin") == null) {
 			return "home";
 		}
 
-		
-		if(participants.getRegType().equalsIgnoreCase("self")) {
+		if (participants.getRegType().equalsIgnoreCase("self")) {
 			participants.setTicketsQty(1);
 		}
-		
+
 		try {
 			participants.setIdentity(new SerialBlob(file.getBytes()));
-		}catch(Exception e) {
-			System.out.println("Exception inside showPreview Controller blob"+e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Exception inside showPreview Controller blob" + e.getMessage());
 		}
-		//data will be saved after the user save inside this page
+		// data will be saved after the user save inside this page
 		System.out.println(participants.getIdentity());
-		
-		String image="";
+
+		String image = "";
 		model.addAttribute("participantDetail", participants);
-		try
-		{
-		     image=Base64.getEncoder().encodeToString(file.getBytes());
-			 
-		}catch(Exception e) {
-			System.out.println("Exception inside preview controller"+e.getMessage()  );
+		try {
+			image = Base64.getEncoder().encodeToString(file.getBytes());
+
+		} catch (Exception e) {
+			System.out.println("Exception inside preview controller" + e.getMessage());
 		}
-		
+
 		model.addAttribute("image", image);
-		
-		httpSession.setAttribute("participant",participants );//set data for registration controller
+
+		httpSession.setAttribute("participant", participants);// set data for registration controller
 		return "show";
 	}
-	
-	
+
 	@PostMapping("/registrationPage")
 	public String registrationPage(HttpSession httpSession) {
-		
-		if(httpSession.getAttribute("begin")==null) {
+
+		if (httpSession.getAttribute("begin") == null) {
 			return "home";
 		}
-		
 
-		Participants participants= (Participants)httpSession.getAttribute("participant");
-		
-		//generate registration number
-		//save data to database
-		//display registration number
-		int save= detailsService.saveParticipants(participants);
-		
+		Participants participants = (Participants) httpSession.getAttribute("participant");
+
+		// generate registration number
+		// save data to database
+		// display registration number
+		int save = detailsService.saveParticipants(participants);
+
 		return "registration";
-		
+
 	}
-	
-	
+
 }
