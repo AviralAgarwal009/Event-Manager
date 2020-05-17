@@ -1,7 +1,101 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+	<head>
 
-<body>
-Hello</body>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <link  th:href="@{/css/preview.css}" rel="stylesheet" type='text/css' >
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        
+	</head>
+    <title>Details</title>
+
+    <body>
+
+        <div class="row no-gutters">
+
+           
+
+			<div class="col-7 no-gutters">
+
+	 				<button id="edit" onclick="edit()">Edit<i class="fa fa-edit"></i></button>
+				<div class="leftside ">
+				
+
+					<div class="details">
+
+						<form action="#" th:action="@{/registrationPage}" th:object="${participant}" method="POST">
+
+							<h1>Confirm Details</h1>
+							<div class="textbox">
+								<i class="fa fa-user" aria-hidden="true"></i>
+								<input th:field="*{name}" type="text"  name="" value=""  id="user" readonly> 
+
+							</div>
+
+							<div class="textbox">
+
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								<input th:field="*{contact}"	type="number" name="" value=""  id="phone" readonly> 
+
+							</div>
+
+							<div class="textbox">
+
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<input th:field="*{email}"	type="email"  name="" value="" id="email" readonly>
+
+							</div>
+
+						
+
+							<div class="textbox" >
+								<i class="fa fa-user-circle" aria-hidden="true"></i>
+								<select th:field="*{regType}" id="regType"  onchange="myFunction()"  disabled>
+									<option th:value="'Registration Type'" value="" disabled selected>Registartion Type</option>
+									<option th:value="'Self'">Self</option>
+									<option th:value="'Self'">Group</option>
+									<option th:value="'Self'">Corporate</option>
+									<option th:value="'Self'">Others</option>
+								</select>
+
+								<div id="regType"  >
+									<br>
+									<br>
+									<i class="fa fa-ticket" aria-hidden="true"></i>
+									<input th:field="*{ticketsQty}"  id="tickets" type="number" placeholder="No. of ticktes" name="" value="" readonly >
+								</div>
+							</div>
+
+							<input class="btn" type="submit" value="Proceed"   onclick="checkSave()">
+					</form>
+
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<div class="col no-gutters">
+
+                    <div class="rightside d-flex justify-content-center align-items-center" id="identity">
+                        <!-- <img th:src="@{/images/temp2.jpg}">-->
+                        <img th:src="'data:image/jpeg;base64,'+${image}"/>
+                    </div>
+            </div>
+			
+		</div>
+
+
+    </body>
+
+    <script th:src="@{/js/preview.js}"></script>
 
 </html>

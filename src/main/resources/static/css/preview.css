@@ -1,0 +1,30 @@
+body{
+    background: url('../images/wall.jpg') !important;
+}
+
+.leftside{
+    margin-left:10%;
+    margin-top:5%;
+}
+#edit{
+    margin-left: 10%;
+    margin-top: 6%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    background: pink;
+    color: white;
+    font-size: 20px;
+
+}
+
+img{
+    height: 50% !important;
+    width: 80% !important;
+}
+
+#identity{
+    background: white;
+}
