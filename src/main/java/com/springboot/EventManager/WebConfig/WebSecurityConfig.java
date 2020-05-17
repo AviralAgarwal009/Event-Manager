@@ -22,13 +22,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      .dataSource(dataSource);
 	}
 	
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
+		 http.authorizeRequests()
 		.antMatchers("/home").permitAll()
-		.antMatchers("").hasRole(null);
+		.antMatchers("/login").hasRole("ADMIN")
+		.and()
+		.formLogin()
+			.loginProcessingUrl("/authenticateTheUser")
+			.permitAll()
+		.and()
+		.logout().permitAll()
+		.and()
+		.exceptionHandling().accessDeniedPage("/access-denied");
 		
 	}
+	
+	
 }

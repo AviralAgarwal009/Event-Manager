@@ -2,8 +2,11 @@ package com.springboot.EventManager.DAO;
 
 import javax.persistence.EntityManager;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
 import com.springboot.EventManager.entity.Participants;
 
+@Repository
 public class DetailsDAOImpl implements DetailsDAO {
 
 	private EntityManager entityManager;
@@ -17,6 +20,5 @@ public class DetailsDAOImpl implements DetailsDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 
 		currentSession.save(theParticipants);
-
 	}
 }

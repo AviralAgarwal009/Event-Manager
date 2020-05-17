@@ -16,7 +16,7 @@ public class LoginController {
 		if (logout != null)
 			model.addAttribute("message", "Your username and password is invalid.");
 
-		return "adminlogin";
+		return "home";
 	}
 
 }

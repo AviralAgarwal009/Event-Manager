@@ -21,14 +21,14 @@ public class FormController {
 	@GetMapping("/home")
 	public String showHome(Model model) {
 
-		Participants theParticipants = new Participants();
-		model.addAttribute("participant", theParticipants);
+		Participants participants = new Participants();
+		model.addAttribute("participant", participants);
 		return "home";
 	}
 
 	@PostMapping("/saveParticipant")
-	public String saveParticipant(@ModelAttribute("participant") Participants theParticipants) {
-		detailsService.saveParticipants(theParticipants);
+	public String saveParticipant(@ModelAttribute("participant") Participants participants) {
+		detailsService.saveParticipants(participants);
 		return "redirect:/  ";
 	}
 
