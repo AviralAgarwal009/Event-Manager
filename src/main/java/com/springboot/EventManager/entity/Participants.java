@@ -31,7 +31,7 @@ public class Participants {
 	@Column(name = "id_card")
 	private Blob identity;
 
-	@Column(name = "reg._type")
+	@Column(name = "reg_type")
 	private String regType;
 
 	@Column(name = "tickets_qty")

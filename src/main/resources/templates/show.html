@@ -61,9 +61,9 @@
 								<select th:field="*{regType}" id="regType"  onchange="myFunction()"  disabled>
 									<option th:value="'Registration Type'" value="" disabled selected>Registartion Type</option>
 									<option th:value="'Self'">Self</option>
-									<option th:value="'Self'">Group</option>
-									<option th:value="'Self'">Corporate</option>
-									<option th:value="'Self'">Others</option>
+									<option th:value="'Group'">Group</option>
+									<option th:value="'Corporate'">Corporate</option>
+									<option th:value="'Others'">Others</option>
 								</select>
 
 								<div id="regType"  >
@@ -87,7 +87,7 @@
 
                     <div class="rightside d-flex justify-content-center align-items-center" id="identity">
                         <!-- <img th:src="@{/images/temp2.jpg}">-->
-                        <img th:src="'data:image/jpeg;base64,'+${image}"/>
+                        <img th:src="'data:image/jpeg;base64,'+${image}" />
                     </div>
             </div>
 			

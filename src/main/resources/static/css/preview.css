@@ -21,8 +21,12 @@ body{
 }
 
 img{
-    height: 50% !important;
-    width: 80% !important;
+	  
+	  display: block !important;
+	  max-width:500px !important;
+	  max-height:500px !important;
+	  width: auto !important;
+	  height: auto !important;
 }
 
 #identity{
