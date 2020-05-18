@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Participants {
 	@Id
 	@Column(name = "reg_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@Column(name = "full_name")

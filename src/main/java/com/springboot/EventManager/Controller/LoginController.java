@@ -3,7 +3,12 @@ package com.springboot.EventManager.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+>>>>>>> 0de088c2cc774beed78601784fcacec7420cd488
 
 @Controller
 public class LoginController {
@@ -25,4 +30,8 @@ public class LoginController {
 		return "admin";
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0de088c2cc774beed78601784fcacec7420cd488

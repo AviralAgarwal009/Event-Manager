@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
+=======
+                                                   -- Uncomment These Lines for creating user
+                                                   -- if you are running this script for the first time 
+                                                   
+/*CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
+>>>>>>> 0de088c2cc774beed78601784fcacec7420cd488
 GRANT ALL PRIVILEGES ON * . * TO 'event_data'@'localhost';
-ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';
+ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';*/
 
 DROP DATABASE IF EXISTS `event_info`;
 CREATE DATABASE `event_info`;
@@ -54,4 +61,9 @@ INSERT INTO `authorities`
 VALUES 
 ('admin','ROLE_ADMIN');
 
+<<<<<<< HEAD
 SET GLOBAL max_allowed_packet = 1073741824;
+=======
+SET GLOBAL max_allowed_packet = 1073741824;
+
+>>>>>>> 0de088c2cc774beed78601784fcacec7420cd488
