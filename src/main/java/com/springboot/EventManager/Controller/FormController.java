@@ -79,7 +79,7 @@ public class FormController {
 	
 	
 	@PostMapping("/registrationPage")
-	public String registrationPage(@ModelAttribute("participantDetail") Participants p,HttpSession httpSession) {
+	public String registrationPage(@ModelAttribute("participantDetail") Participants p,HttpSession httpSession,Model model) {
 		
 		if(httpSession.getAttribute("begin")==null) {
 			return "home";
@@ -98,7 +98,8 @@ public class FormController {
 		//generate registration number
 		//save data to database
 		//display registration number
-		//int save=detailsService.saveParticipants(participants);
+		int save=detailsService.saveParticipants(participants);
+		model.addAttribute("registrationNumber", save);
 		
 		return "registration";
 		

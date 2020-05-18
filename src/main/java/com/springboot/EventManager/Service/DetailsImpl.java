@@ -33,7 +33,7 @@ public class DetailsImpl implements DetailsService {
 
 		detailsDao.saveParticipants(theParticipants);
 
-		return 1;
+		return random;
 	}
 
 	public int generateRandom() {

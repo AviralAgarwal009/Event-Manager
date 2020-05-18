@@ -58,7 +58,7 @@
 
 							<div class="textbox" >
 								<i class="fa fa-user-circle" aria-hidden="true"></i>
-								<select th:field="*{regType}" id="regType"  disabled>
+								<select th:field="*{regType}" id="regType"  onchange="onChangeRegType()"disabled>
 									<option th:value="'Registration Type'"  disabled selected>Registration Type</option>
 									<option th:value="'Self'">Self</option>
 									<option th:value="'Group'">Group</option>

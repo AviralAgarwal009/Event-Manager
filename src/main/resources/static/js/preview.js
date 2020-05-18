@@ -4,6 +4,7 @@ function edit()
 {
     
     var temp = document.getElementById("edit");
+    
     if(toggleEdit)
     {
         temp.innerHTML = "Save";
@@ -31,6 +32,9 @@ function edit()
         document.getElementById("email").readOnly=true;
         toggleEdit=true;
     }
+    if(document.getElementById("regType").value=="Self"){
+    	document.getElementById("tickets").readOnly=true;
+    }
 }
 
 
@@ -42,5 +46,17 @@ function checkSave(){
         document.getElementById("email").readOnly=true;
        
         alert("Changes Saved Automatically");
+    }
+}
+
+
+
+function onChangeRegType(){
+    if(document.getElementById("regType").value=="Self"){
+        document.getElementById("tickets").value=1;
+        document.getElementById("tickets").readOnly=true;
+    }
+    else{
+        document.getElementById("tickets").removeAttribute("readOnly");
     }
 }
