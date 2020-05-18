@@ -33,4 +33,26 @@ public class DetailsDAOImpl implements DetailsDAO {
 		}
 		return true;
 	}
+
+	@Override
+	public List<Participants> getParticipants() {
+
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query<Participants> q = currentSession.createQuery("from Participants order by id", Participants.class);
+
+		List<Participants> participants = q.getResultList();
+
+		return participants;
+	}
+
+	@Override
+	public Participants getParticipants(int theId) {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Participants participants = currentSession.get(Participants.class, theId);
+
+		return participants;
+	}
+
 }

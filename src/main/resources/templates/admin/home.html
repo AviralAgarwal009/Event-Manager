@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{css/adminhome.css}">
+	<script type="text/javascript" th:inline="javascript">
+		
+			var self=/*[[${regCount.self}]]*/ "";
+			var group=/*[[${regCount.group}]]*/ "";
+			var others=/*[[${regCount.others}]]*/ "";
+			var corporate=/*[[${regCount.corporate}]]*/ "";
+			
+			
+	
+		    google.charts.load("current", {packages:['corechart']});
+		    google.charts.setOnLoadCallback(drawChart);
+		    function drawChart() {
+		      var data = google.visualization.arrayToDataTable([
+		        ["Element", "", { role: "style" } ],
+		        ["Self", self, "#b87333"],
+		        ["Group", group, "silver"],
+		        ["Corporate", corporate, "gold"],
+		        ["Others", others, "color: #e5e4e2"]
+		      ]);
+		
+		      var view = new google.visualization.DataView(data);
+		      view.setColumns([0, 1,
+		                       { calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" },
+		                       2]);
+		
+		      var options = {
+		        title: "Registration Types",
+		        width: 600,
+		        height: 400,
+		        bar: {groupWidth: "95%"},
+		        legend: { position: "none" },
+		      };
+		      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+		      chart.draw(view, options);
+		  }
+  	</script>
+
+  <body> 
+
+		<form action="${pageContext.request.contextPath}/logout" method="POST">
+
+       		 <input type="submit" value="Logout" id="logoutbtn"  class="btn btn-primary"/>
+    
+      	</form>
+      	
+        <h1 style="margin-top:10px;">Welcome</h1>
+
+        <div id="columnchart_values"  align="center"></div>
+
+        <div class="container" align="center">
+        
+        
+	        <table class="content-table">
+	        
+	        	<thead>
+	            <tr>
+	              <th>Registration Number</th>
+	              <th>Date</th>
+	              <th>Name</th>
+	            </tr>
+	          </thead>
+	          
+	          <tbody>
+	          
+	          		<tr th:each="temp : ${participant}" class="active-row">
+	          		
+	          			
+	          			<td>
+	          				<a th:href="@{/showDetails(id=${temp.id})}" th:text="${temp.id}"></a>
+	          			</td>
+	          			
+	          			
+	          			<td th:text="${temp.dateTime}"/>
+	          			<td th:text="${temp.name}"/>
+	          			
+	          			
+	          		</tr>
+	          
+	          </tbody>
+	        	
+	        </table>
+
+      </div>
+
+
+      
+
+  </body>
+</html>
+
+

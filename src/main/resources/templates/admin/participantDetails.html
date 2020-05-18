@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       
+        <link th:href="@{css/participantDetails.css}" rel="stylesheet" type='text/css' >
+        <link rel="stylesheet" type="text/css" th:href="@{css/preview.css}">
+        
+	</head>
+    <title>Details</title>
+
+    <body>
+
+        <div class="row no-gutters">
+
+          
+			<div class="col-7 no-gutters">
+				<div class="leftside ">
+				
+
+					<div class="details">
+
+
+
+                            <h1>Details</h1>
+							<div class="textbox">
+							
+								<i class="fa fa-id-card-o" aria-hidden="true"></i>
+								<p>Registration Number  :  <span th:text="${participant.id}">Number</span></p> 
+								
+								<i class="fa fa-user" aria-hidden="true"></i>
+                                <p>Full Name  :  <span th:text="${participant.name}">Aviral</span></p>
+                                
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <p>Contact Number  :   <span th:text="${participant.contact}">Aviral</span></p>
+                                
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <p>Email  :   <span th:text="${participant.email}">Aviral</span></p>
+                                
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <p>Registartion Type  :   <span th:text="${participant.regType}">Aviral</span></p>
+                                
+                                <i class="fa fa-ticket" aria-hidden="true"></i>
+                                <p>Total Tickets  :   <span th:text="${participant.ticketsQty}">Aviral</span></p>
+
+							</div>
+
+
+					</div>
+					
+                </div>
+                
+            </div>
+                
+                <div class="col no-gutters"  >
+
+                    <div class="rightside" id="identity"> 
+                       <!--  <img th:src="@{images/wall.jpg}"> -->
+                       <img th:src="'data:image/jpeg;base64,'+${image}" />
+                    </div> 
+                </div>
+
+
+                
+		</div>
+            
+
+
+    </body>
+
+
+</html>

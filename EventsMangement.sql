@@ -1,6 +1,9 @@
-CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
+                                                   -- Uncomment These Lines for creating user
+                                                   -- if you are running this script for the first time 
+                                                   
+/*CREATE USER if not exists 'event_data'@'localhost' IDENTIFIED BY 'event_data';
 GRANT ALL PRIVILEGES ON * . * TO 'event_data'@'localhost';
-ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';
+ALTER USER 'event_data'@'localhost' IDENTIFIED WITH mysql_native_password BY 'data_info_event';*/
 
 DROP DATABASE IF EXISTS `event_info`;
 CREATE DATABASE `event_info`;
@@ -33,10 +36,10 @@ CREATE TABLE `users` (
 
 
 -- Dumping data for table `users`
--- Default password is : admin
+-- Default password is : fun123
 INSERT INTO `users` 
 VALUES 
-('admin','{bcrypt}$2a$10$XsvZ5lOrIuQ0n4mc3NZ2v.nB6U66bczDjm4p9iOC5rKM57oTxdOSC',1);
+('admin','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1);
 
 -- Table structure for table `authorities`
 
@@ -55,3 +58,4 @@ VALUES
 ('admin','ROLE_ADMIN');
 
 SET GLOBAL max_allowed_packet = 1073741824;
+

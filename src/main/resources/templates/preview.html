@@ -70,7 +70,7 @@
 									<br>
 									<br>
 									<i class="fa fa-ticket" aria-hidden="true"></i>
-									<input th:field="*{ticketsQty}"  id="tickets" type="number" placeholder="No. of ticktes" name="" value="" readonly >
+									<input th:field="*{ticketsQty}"  id="tickets" type="number" placeholder="No. of ticktes" name="" value="" min="1" readonly >
 								</div>
 							</div>
 
@@ -86,7 +86,6 @@
 			<div class="col no-gutters">
 
                     <div class="rightside d-flex justify-content-center align-items-center" id="identity">
-                        <!-- <img th:src="@{/images/temp2.jpg}">-->
                         <img th:src="'data:image/jpeg;base64,'+${image}" />
                     </div>
             </div>

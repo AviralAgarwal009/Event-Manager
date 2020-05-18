@@ -15,7 +15,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script th:src="@{js/home.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/home.css}" />
 </head>
 <title>Details</title>
 
@@ -62,8 +63,8 @@
 						
 						 <div class="input-group mb-3" id="fileInput">
 							<div class="custom-file">
-								<input  type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" name="imageFile" required> 
-								<label class="custom-file-label" for="inputGroupFile02" id="fileLabel">Upload ID Card</label>
+								<input  type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" name="imageFile" onchange="call()" required> 
+								<label class="custom-file-label" for="inputGroupFile02" id="fileLabel">ID Card (max size:10MB)</label>
 							</div>
 						</div>
 
