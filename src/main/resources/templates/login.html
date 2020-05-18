@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Login </title>
+<title>Login</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">   
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
-    <body>
-    <div class="login-box">
-        <img th:src="@{/images/avatar.png}" class="avatar">
-        <h1>Admin Login</h1>
+<body>
+	<div class="login-box">
+		<img th:src="@{/images/avatar.png}" class="avatar">
+		<h1>Admin Login</h1>
+
+		<form action=# th:action="@{/authenticateTheUser}" method="POST"
+			class="form-horizontal">
 
 
-            <form>
+			<p>
+				<i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; Username
+			</p>
 
-            <p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; Username</p>
-           
-            <input type="text"  placeholder="Enter Username"   required>
-            
-            <p><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;&nbsp; Password</p>
-            <input type="password"  name="password" placeholder="Enter Password" required>
-            
-            <input type="submit" name="submit" value="Login">
-            </form>
-        
-        
-        </div>
-    
-    </body>
+			<input type="text" name="username" placeholder="Enter Username"
+				required>
+
+			<p>
+				<i class="fa fa-lock" aria-hidden="true"></i>&nbsp;&nbsp; Password
+			</p>
+			<input type="password" name="password" placeholder="Enter Password"
+				required>
+			<p>
+				<i aria-hidden="true"></i>&nbsp;&nbsp;
+			</p>
+			<input type="submit" name="submit" value="Login">
+		</form>
+
+
+	</div>
+
+</body>
 </html>

@@ -59,10 +59,10 @@ public class FormController {
 			System.out.println("Exception inside showPreview Controller blob"+e.getMessage());
 		}
 		//data will be saved after the user save inside this page
-		System.out.println(participants.getIdentity());
+
 		
 		String image="";
-		model.addAttribute("participantDetail", participants);
+		
 		try
 		{
 		     image=Base64.getEncoder().encodeToString(file.getBytes());
@@ -70,7 +70,7 @@ public class FormController {
 		}catch(Exception e) {
 			System.out.println("Exception inside preview controller"+e.getMessage()  );
 		}
-		
+		model.addAttribute("participantDetail", participants);//to see the changes made
 		model.addAttribute("image", image);
 		
 		httpSession.setAttribute("participant",participants );//set data for registration controller
@@ -79,19 +79,26 @@ public class FormController {
 	
 	
 	@PostMapping("/registrationPage")
-	public String registrationPage(HttpSession httpSession) {
+	public String registrationPage(@ModelAttribute("participantDetail") Participants p,HttpSession httpSession) {
 		
 		if(httpSession.getAttribute("begin")==null) {
 			return "home";
 		}
 		
-
 		Participants participants= (Participants)httpSession.getAttribute("participant");
+		participants.setName(p.getName());
+		participants.setContact(p.getContact());
+		participants.setEmail(p.getEmail());
+		participants.setRegType(p.getRegType());
+		participants.setTicketsQty(p.getTicketsQty());
+		
+		
+		System.out.println(participants.getRegType());
 		
 		//generate registration number
 		//save data to database
 		//display registration number
-		int save=detailsService.saveParticipants(participants);
+		//int save=detailsService.saveParticipants(participants);
 		
 		return "registration";
 		
