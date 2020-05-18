@@ -1,9 +1,9 @@
-package com.springboot.EventManager.testjdbc;
+package com.springboot.EventManager.TestJdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class TestJdbc {
+public class Test {
 
 	public static void main(String[] args) {
 
