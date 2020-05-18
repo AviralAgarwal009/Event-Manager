@@ -27,6 +27,7 @@ function edit()
         document.getElementById("phone").readOnly=true;
         document.getElementById("email").readOnly=true;
         document.getElementById("regType").disabled=true;
+        document.getElementById("tickets").readOnly=true;
         document.getElementById("email").readOnly=true;
         toggleEdit=true;
     }
@@ -34,11 +35,12 @@ function edit()
 
 
 function checkSave(){
+	 document.getElementById("regType").removeAttribute("disabled");  
     if(!toggleEdit){
         document.getElementById("user").readOnly=true;
         document.getElementById("phone").readOnly=true;
         document.getElementById("email").readOnly=true;
-        document.getElementById("regType").disabled=true;   
+       
         alert("Changes Saved Automatically");
     }
 }

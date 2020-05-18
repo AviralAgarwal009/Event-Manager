@@ -31,7 +31,7 @@
 
 					<div class="details">
 
-						<form action="#" th:action="@{/registrationPage}" th:object="${participant}" method="POST">
+						<form action="#" th:action="@{/registrationPage}" th:object="${participantDetail}" method="POST">
 
 							<h1>Confirm Details</h1>
 							<div class="textbox">
@@ -58,15 +58,15 @@
 
 							<div class="textbox" >
 								<i class="fa fa-user-circle" aria-hidden="true"></i>
-								<select th:field="*{regType}" id="regType"  onchange="myFunction()"  disabled>
-									<option th:value="'Registration Type'" value="" disabled selected>Registartion Type</option>
+								<select th:field="*{regType}" id="regType"  disabled>
+									<option th:value="'Registration Type'"  disabled selected>Registration Type</option>
 									<option th:value="'Self'">Self</option>
 									<option th:value="'Group'">Group</option>
 									<option th:value="'Corporate'">Corporate</option>
 									<option th:value="'Others'">Others</option>
 								</select>
 
-								<div id="regType"  >
+								<div id="ticketCount"  >
 									<br>
 									<br>
 									<i class="fa fa-ticket" aria-hidden="true"></i>
