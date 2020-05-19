@@ -1,4 +1,4 @@
-package com.springboot.EventManager.model;
+package com.springboot.EventManager.Model;
 
 public class RegTypeCount {
 

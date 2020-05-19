@@ -1,6 +1,7 @@
 package com.springboot.EventManager.Controller;
 
 import java.sql.SQLException;
+
 import java.util.Base64;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.springboot.EventManager.model.RegTypeCount;
+import com.springboot.EventManager.Model.RegTypeCount;
 import com.springboot.EventManager.Service.DetailsService;
 import com.springboot.EventManager.entity.Participants;
 
