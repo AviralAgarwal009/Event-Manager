@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.springboot.EventManager.DAO.DetailsDAO;
-import com.springboot.EventManager.Model.RegTypeCount;
+import com.springboot.EventManager.model.RegTypeCount;
 import com.springboot.EventManager.entity.Participants;
 
 @Service
