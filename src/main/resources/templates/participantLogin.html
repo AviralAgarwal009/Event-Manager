@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+</head>
+<body>
+	<div class="login-box">
+		<img th:src="@{/images/avatar.png}" class="avatar">
+		<h1>Participant Login</h1>
+
+		<form action=# th:action="@{/participantauth}" method="POST"
+			class="form-horizontal">
+			
+						<div id="errors" th:if="${(param.error != null) and (param.error[0] !=null)}">
+						
+						    <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+								Invalid username and password.
+							</div>
+						    
+						</div>
+						
+						
+						
+			 <div th:if="${checkCredentials}==false">
+			 <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+								Invalid username and password.
+							</div>
+			</div> 
+
+
+
+			<p>
+				<i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; Registration Number
+			</p>
+
+			<input type="number" name="number" placeholder="Enter registration number" , max="100000000"
+				required/>
+
+			<input type="submit" name="submit" value="Login">
+			
+			
+		</form>
+
+
+	</div>
+
+</body>
+</html>

@@ -90,4 +90,11 @@ public class DetailsImpl implements DetailsService {
 		return reg;
 	}
 
+	@Override
+	@Transactional
+	public boolean check(int random) {
+		// TODO Auto-generated method stub
+		return detailsDao.check(random);
+	}
+
 }

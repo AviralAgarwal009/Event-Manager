@@ -90,7 +90,7 @@ img {
 .btn {
 	width: 100%;
 	background: none;
-	border: 2px solid #4caf50 !important;
+	border: 2px solid rgb(76, 175, 80) !important;
 	color: white !important;
 	padding: 5px;
 	font-size: 18px;
@@ -99,4 +99,9 @@ img {
 
 .details{
 	width:350px;
+}
+
+
+a{
+	margin-left:30%;
 }

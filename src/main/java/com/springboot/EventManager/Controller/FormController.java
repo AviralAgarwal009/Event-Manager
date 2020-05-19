@@ -1,5 +1,6 @@
 package com.springboot.EventManager.Controller;
 
+import java.sql.SQLException;
 import java.util.Base64;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
@@ -84,5 +85,53 @@ public class FormController {
 		return "registration";
 
 	}
+	
+	@GetMapping("/participantlogin")
+	public String participantLogin(Model model) {
+		
+		
+		model.addAttribute("checkCredentials",true);
+		return "participantLogin";
+		
+	}
+	
+	
+	@PostMapping("/participantauth")
+	public String checkCredentials(@RequestParam("number")int regNo, Model model) {
+		
+		boolean check=detailsService.check(regNo);
+		if(!check) {
+			//does not exists
+			model.addAttribute("checkCredentials", false);
+			return "participantLogin";
+		}
+		else
+		{
+				
+			Participants p=detailsService.getParticipants(regNo);
+			model.addAttribute("participant", p);
+			byte imageArray[]= {};
+			try {
+				
+				long length=p.getIdentity().length();
+				imageArray=p.getIdentity().getBytes(1, (int)length);
+				
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			String image = Base64.getEncoder().encodeToString(imageArray);
+			model.addAttribute("image", image);
+	
+			
+			return "admin/participantDetails";
+			}
+		
+	}
+	
+	
+	
 
 }

@@ -14,4 +14,6 @@ public interface DetailsService {
 	public Participants getParticipants(int theId);
 	
 	public RegTypeCount getCount();
+	
+	public boolean check(int random);
 }
