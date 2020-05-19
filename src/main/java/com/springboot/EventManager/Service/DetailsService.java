@@ -2,8 +2,8 @@ package com.springboot.EventManager.Service;
 
 import java.util.List;
 
+import com.springboot.EventManager.Model.RegTypeCount;
 import com.springboot.EventManager.entity.Participants;
-import com.springboot.EventManager.model.RegTypeCount;
 
 public interface DetailsService {
 

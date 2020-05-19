@@ -1,17 +1,17 @@
-package com.springboot.EventManager.model;
+package com.springboot.EventManager.Model;
 
 public class RegTypeCount {
-	
+
 	private int self;
 	private int group;
 	private int others;
 	private int corporate;
-	
-	public RegTypeCount(){
-		self=0;
-		group=0;
-		others=0;
-		corporate=0;
+
+	public RegTypeCount() {
+		self = 0;
+		group = 0;
+		others = 0;
+		corporate = 0;
 	}
 
 	public int getSelf() {
@@ -45,8 +45,5 @@ public class RegTypeCount {
 	public void setCorporate(int corporate) {
 		this.corporate = corporate;
 	}
-	
-	
-	
 
 }
