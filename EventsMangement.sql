@@ -57,5 +57,5 @@ INSERT INTO `authorities`
 VALUES 
 ('admin','ROLE_ADMIN');
 
-SET GLOBAL max_allowed_packet = 1073741824;
+SET GLOBAL max_allowed_packet = 11000000;
 
