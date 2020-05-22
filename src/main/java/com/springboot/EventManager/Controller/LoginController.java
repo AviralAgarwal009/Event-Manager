@@ -25,7 +25,7 @@ public class LoginController {
 		return "admin/login";
 	}
 
-	@GetMapping("/entries")
+	@GetMapping("/dashboard")
 	public String Welcome(Model model) {
 
 		RegTypeCount reg = detailsService.getCount();

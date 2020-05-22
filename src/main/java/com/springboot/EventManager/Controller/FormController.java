@@ -99,6 +99,7 @@ public class FormController {
 	@PostMapping("/participantauth")
 	public String checkCredentials(@RequestParam("number")int regNo, Model model) {
 		
+		
 		boolean check=detailsService.check(regNo);
 		if(!check) {
 			//does not exists
