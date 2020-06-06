@@ -35,11 +35,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- Dumping data for table `users`
--- Default password is : fun123
+
+-- Default password is : admin
 INSERT INTO `users` 
 VALUES 
-('admin','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1);
+('admin','$2a$10$00Iaaboe8JqvC/cfFbqyeeY8ydzmZmOImlZSpB1BJzpWwC3TRfZ4u',1);
 
 -- Table structure for table `authorities`
 
