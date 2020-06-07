@@ -21,7 +21,7 @@ public class FormController {
 	@Autowired
 	DetailsService detailsService;
 
-	@GetMapping("/")
+	@GetMapping(value= {"/","home"})
 	public String showHome(Model model, HttpSession httpSession) {
 		httpSession.setAttribute("begin", "true");
 		Participants participants = new Participants();
