@@ -39,7 +39,7 @@ public class DetailsDAOImpl implements DetailsDAO {
 
 		Session currentSession = entityManager.unwrap(Session.class);
 
-		Query<Participants> q = currentSession.createQuery("from Participants order by id", Participants.class);
+		Query<Participants> q = currentSession.createQuery("from Participants order by dateTime desc", Participants.class);
 
 		List<Participants> participants = q.getResultList();
 
